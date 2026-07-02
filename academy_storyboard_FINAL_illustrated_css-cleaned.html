@@ -2876,6 +2876,15 @@
     return escHtml(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
   }
 
+  function resolveImgSrc(img) {
+    const v = (img || "").trim();
+    if (!v) return "";
+    const driveMatch = v.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([\w-]+)/);
+    if (driveMatch) return "https://drive.google.com/uc?export=view&id=" + driveMatch[1];
+    if (/^https?:\/\//i.test(v)) return v;
+    return "./" + v;
+  }
+
   function parseCSV(text) {
     const rows = [];
     let row = [], field = "", inQuotes = false;
@@ -2925,7 +2934,7 @@
     const cls = rec.cat === "event" ? "evnt" : rec.cat;
     return '<div class="ag-card t-' + cls + '" data-cat="' + rec.cat + '">' +
       '<div class="agt-dot"></div>' +
-      '<img class="ag-thumb" src="./' + escHtml(rec.img) + '" alt="' + escHtml(rec.name) + '">' +
+      '<img class="ag-thumb" src="' + escHtml(resolveImgSrc(rec.img)) + '" alt="' + escHtml(rec.name) + '">' +
       '<div class="ag-name">' + escHtml(rec.name) + '</div>' +
       '<div class="ag-loc">' + escHtml(rec.loc) + '</div>' +
       '<div class="ag-feat">' + escHtml(rec.grid) + '</div>' +
@@ -2938,7 +2947,7 @@
     const pts = (rec.pts && rec.pts.length) ? ('<ul class="ai-points">' + rec.pts.map((p) => '<li>' + mdBold(p) + '</li>').join('') + '</ul>') : '';
     const tags = (rec.tags && rec.tags.length) ? ('<div class="ai-tags">' + rec.tags.map((t) => '<span class="ai-tag" style="background:' + color + '">' + escHtml(t) + '</span>').join('') + '</div>') : '<div class="ai-tags"></div>';
     return '<div class="acad-item" style="border-color:' + color + ';">' +
-      '<img class="acad-thumb" src="./' + escHtml(rec.img) + '" alt="' + escHtml(rec.name) + '">' +
+      '<img class="acad-thumb" src="' + escHtml(resolveImgSrc(rec.img)) + '" alt="' + escHtml(rec.name) + '">' +
       '<div class="ai-body">' +
       '<div class="ai-top"><div class="ai-name">' + escHtml(rec.name) + '</div>' + locLine + '</div>' +
       '<div class="ai-feat">' + mdBold(rec.feat) + '</div>' +
