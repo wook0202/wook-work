@@ -2013,107 +2013,6 @@
     margin-right:calc(50% - 50vw);
   }
 
-  /* Slide 01: best practice auto-rotating cases */
-  .stack .practice-stage {
-    width:100%;
-    margin-top:0;
-    position:relative;
-    order:3;
-  }
-  .stack .practice-viewport {
-    position:relative;
-    min-height:285px;
-  }
-  .stack .practice-slide {
-    --case:#4B9DA9;
-    --case-soft:#eaf8f7;
-    position:absolute;
-    inset:0 auto auto 0;
-    width:100%;
-    opacity:0;
-    transform:translateX(24px);
-    transition:opacity .48s ease, transform .48s ease;
-    pointer-events:none;
-  }
-  .stack .practice-slide.is-active {
-    opacity:1;
-    transform:translateX(0);
-    pointer-events:auto;
-  }
-  .stack .practice-slide[data-case="journal"] {
-    --case:#4B9DA9;
-    --case-soft:#eaf8f7;
-  }
-  .stack .practice-slide[data-case="routine"] {
-    --case:#2f6fb5;
-    --case-soft:#edf5ff;
-  }
-  .stack .practice-slide[data-case="workbook"] {
-    --case:#E37434;
-    --case-soft:#fff3ec;
-  }
-  .stack .practice-slide .s01-academy {
-    border-color:var(--case);
-  }
-  .stack .practice-slide .s01-academy svg {
-    color:var(--case);
-  }
-  .stack .practice-slide .s01-quote {
-    margin-bottom:18px;
-  }
-  .stack .practice-slide .s01-quote b {
-    color:var(--case);
-    font-weight:900;
-  }
-  .stack .case-proof {
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:8px;
-    width:min(520px,100%);
-    margin:0 0 16px;
-  }
-  .stack .proof-item {
-    min-height:58px;
-    display:grid;
-    align-content:center;
-    gap:4px;
-    padding:9px 11px;
-    border:1px solid color-mix(in srgb, var(--case) 28%, #fff);
-    border-radius:12px;
-    background:rgba(255,255,255,.82);
-    box-shadow:0 8px 18px rgba(23,60,66,.04);
-  }
-  .stack .proof-item b {
-    color:var(--case);
-    font-size:15px;
-    line-height:1.15;
-    font-weight:900;
-  }
-  .stack .proof-item span {
-    color:#53646f;
-    font-size:11.5px;
-    line-height:1.25;
-    font-weight:800;
-  }
-  @media (max-width:560px) {
-    .stack .practice-stage {
-      margin-top:0;
-    }
-    .stack .practice-viewport {
-      min-height:360px;
-    }
-    .stack .case-proof {
-      grid-template-columns:1fr;
-      gap:6px;
-      margin-bottom:12px;
-    }
-    .stack .proof-item {
-      min-height:0;
-      grid-template-columns:70px minmax(0,1fr);
-      align-items:center;
-    }
-  }
-
 </style>
 </head>
 <body>
@@ -2212,54 +2111,27 @@
   <div class="s01-inner">
     <div class="s01-left">
       <div class="ttl-main">생생한 원장님들의 <span class="gold">사용 후기</span></div>
-      <div class="practice-stage" data-practice-slider>
-        <div class="s01-kicker">BEST PRACTICE · 우수 학원 사례</div>
-        <div class="practice-viewport">
-          <article class="practice-slide is-active" data-case="journal">
-            <div class="s01-academy">
-              <svg viewBox="0 0 28 28" aria-hidden="true">
-                <path d="M5 23V10l9-5 9 5v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M10 23v-7h8v7M8 12h3M17 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span>유*버셜스튜디오 (UES) · 서울 강서구</span>
-            </div>
-            <div class="s01-quote">디지털 도서관의 편리함과 <b>오프라인 북저널</b>의 깊이를 완벽히 결합 — 아이들의 사고력이 확장됩니다. 생각하고 느끼고 표현하는 힘을 키우고 있습니다.</div>
-            <div class="case-proof">
-              <div class="proof-item"><b>북저널</b><span>오프라인 기록 결합</span></div>
-              <div class="proof-item"><b>표현</b><span>생각을 글과 말로 확장</span></div>
-              <div class="proof-item"><b>사고력</b><span>읽기 이후 활동 강화</span></div>
-            </div>
-          </article>
-          <article class="practice-slide" data-case="routine">
-            <div class="s01-academy">
-              <svg viewBox="0 0 28 28" aria-hidden="true">
-                <path d="M5 23V10l9-5 9 5v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M10 23v-7h8v7M8 12h3M17 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span>I*S주니어영어학원 · 화성 봉담 · 장기 활용</span>
-            </div>
-            <div class="s01-quote">기존 오프라인 도서 운영에서 참빛북클럽으로 전환하며 <b>듣기 → 따라 말하기 → 문제 → 녹음</b>까지 이어지는 리딩 루틴이 안정적으로 자리 잡았습니다.</div>
-            <div class="case-proof">
-              <div class="proof-item"><b>9년+</b><span>장기 운영 경험</span></div>
-              <div class="proof-item"><b>4단계</b><span>복합 리딩 루틴</span></div>
-              <div class="proof-item"><b>녹음</b><span>말하기 피드백 연결</span></div>
-            </div>
-          </article>
-          <article class="practice-slide" data-case="workbook">
-            <div class="s01-academy">
-              <svg viewBox="0 0 28 28" aria-hidden="true">
-                <path d="M5 23V10l9-5 9 5v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M10 23v-7h8v7M8 12h3M17 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span>위*어학원 · 용인 · 워크북 시스템형</span>
-            </div>
-            <div class="s01-quote"><b>3개월치 RCT 워크북</b>을 제본해 교재처럼 활용하니 학부모에게 보여줄 수 있는 학습 포트폴리오가 자연스럽게 쌓였습니다.</div>
-            <div class="case-proof">
-              <div class="proof-item"><b>3개월</b><span>워크북 제본 단위</span></div>
-              <div class="proof-item"><b>교재화</b><span>수업 결과물 누적</span></div>
-              <div class="proof-item"><b>신뢰</b><span>학부모 공유 자료</span></div>
-            </div>
-          </article>
+      <div class="s01-kicker">BEST PRACTICE · 우수 학원 사례</div>
+      <div class="s01-academy">
+        <svg viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M5 23V10l9-5 9 5v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 23v-7h8v7M8 12h3M17 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>유*버셜스튜디오 (UES)<br class="s01-mobile-break"> · 서울 강서구 · 이*연 원장님</span>
+      </div>
+      <div class="s01-quote">디지털 도서관의 편리함과 오프라인 북저널의 깊이를<br class="s01-mobile-break"> 완벽히 결합 —<br class="s01-mobile-break"> 아이들의 사고력이 확장됩니다.<br class="s01-mobile-break"> 우리 아이들은 단순히 영어를 배우는 것이<br class="s01-mobile-break"> 아니라, 생각하고 느끼고 표현할 수 있는<br class="s01-mobile-break"> 힘을 키우고 있습니다.</div>
+      <div class="s01-tags">
+        <div class="s01-tag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c4 0 6 1.4 8 3.3C14 7.4 16 6 20 6v12c-4 0-6 1.1-8 3-2-1.9-4-3-8-3V6Z" fill="currentColor"/></svg>
+          오프라인 북저널
+        </div>
+        <div class="s01-tag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18l2-5.5L17.5 2 22 6.5 11.5 17 6 19l-1-1Z" fill="currentColor"/></svg>
+          표현 활동
+        </div>
+        <div class="s01-tag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.8 6.2 20l1.1-6.5-4.7-4.6 6.5-.9L12 2Z" fill="currentColor"/></svg>
+          성취 경험
         </div>
       </div>
     </div>
@@ -2986,7 +2858,7 @@
 
   // 구글 시트를 "파일 > 공유 > 웹에 게시 > CSV" 로 게시한 뒤, 그 링크를 아래 따옴표 안에 붙여넣으면
   // 이 페이지가 그 시트 데이터를 자동으로 불러와 카드로 렌더링합니다. 비워두면 기본 데이터로 표시됩니다.
-  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1ChA3s2sWrwaUHcITA-VawL9j5PwKMINbB_7K1BnUDh8/export?format=csv&gid=489158814";
+  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1kDnbMpXTbIoj6L7Kjv4x2aqsCit98XX9/export?format=csv";
 
   const CAT_LABEL_MAP = {
     "장기 활용": "best",
@@ -3129,7 +3001,18 @@
     }
   }
 
+  // 2026-07-02 기준 기존 학원 수. 이 개수 이후(시트에서 새로 추가된 행)부터는
+  // 최신 등록순으로 맨 앞에 노출되고, 이 개수까지의 기존 학원은 원래 순서를 그대로 유지합니다.
+  const EXISTING_BASELINE_COUNT = 24;
+  function reorderNewFirst(data) {
+    if (data.length <= EXISTING_BASELINE_COUNT) return data;
+    const existing = data.slice(0, EXISTING_BASELINE_COUNT);
+    const newest = data.slice(EXISTING_BASELINE_COUNT).reverse();
+    return newest.concat(existing);
+  }
+
   function renderReviews(data) {
+    data = reorderNewFirst(data);
     const allGrid = document.getElementById('all-grid');
     if (allGrid) allGrid.innerHTML = data.map(gridCardHTML).join('');
     const groups = { best: [], work: [], self: [], deep: [], event: [] };
@@ -3143,26 +3026,6 @@
     initReviewFilters();
   }
 
-  function initBestPracticeSlider() {
-    const slider = document.querySelector('[data-practice-slider]');
-    if (!slider) return;
-    const slides = Array.from(slider.querySelectorAll('.practice-slide'));
-    if (slides.length < 2) return;
-    let active = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
-
-    function showSlide(index) {
-      active = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('is-active', i === active);
-      });
-    }
-
-    window.setInterval(() => {
-      showSlide(active + 1);
-    }, 4200);
-  }
-
-  initBestPracticeSlider();
   renderReviews(FALLBACK_REVIEWS);
 
   if (SHEET_CSV_URL) {
