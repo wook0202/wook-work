@@ -2012,6 +2012,56 @@
     margin-left:calc(50% - 50vw);
     margin-right:calc(50% - 50vw);
   }
+  @media (max-width:560px) {
+    .review-archive-label { height:16px; }
+  }
+  @media (max-width:560px) {
+    .s02:not(.review-open) .all-grid,
+    .s02.review-all .all-grid {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .s02:not(.review-open) .all-grid .ag-card,
+    .s02.review-all .all-grid .ag-card {
+      min-height:0;
+      border-radius:10px;
+      box-shadow:0 8px 18px rgba(80,70,52,.05);
+    }
+    .s02:not(.review-open) .all-grid .ag-card::before,
+    .s02.review-all .all-grid .ag-card::before {
+      top:8px;
+      left:8px;
+      padding:5px 7px;
+      font-size:10px;
+    }
+    .s02:not(.review-open) .all-grid .ag-thumb,
+    .s02.review-all .all-grid .ag-thumb {
+      height:112px;
+    }
+    .s02:not(.review-open) .all-grid .ag-name,
+    .s02.review-all .all-grid .ag-name {
+      min-height:0;
+      padding:10px 10px 0;
+      font-size:13px;
+      line-height:1.28;
+    }
+    .s02:not(.review-open) .all-grid .ag-loc,
+    .s02.review-all .all-grid .ag-loc {
+      padding:2px 10px 0;
+      font-size:10.5px;
+      line-height:1.25;
+    }
+    .s02:not(.review-open) .all-grid .ag-feat,
+    .s02.review-all .all-grid .ag-feat {
+      padding:6px 10px 12px;
+      font-size:11.5px;
+      line-height:1.35;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+  }
 
   /* Slide 01: best practice auto-rotating cases */
   .stack .practice-stage {
@@ -2096,11 +2146,18 @@
     font-weight:800;
   }
   @media (max-width:560px) {
+    .stack .s01 {
+      min-height:auto;
+      background:#fff !important;
+    }
+    .stack .s01-inner {
+      min-height:auto;
+    }
     .stack .practice-stage {
       margin-top:0;
     }
     .stack .practice-viewport {
-      min-height:360px;
+      min-height:320px;
     }
     .stack .case-proof {
       grid-template-columns:1fr;
