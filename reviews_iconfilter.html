@@ -709,25 +709,50 @@
     font-weight:900;
     letter-spacing:-0.01em;
   }
-  .minimal-review-section .ag-thumb {
+  .minimal-review-section .review-image-link,
+  .minimal-review-section .review-thumb-frame {
     order:1;
+    position:relative;
+    display:block;
     width:100%;
     height:168px;
+    overflow:hidden;
+    border-radius:4px;
+    background:#111;
+  }
+  .minimal-review-section .ag-thumb {
+    width:100%;
+    height:100%;
     object-fit:cover;
     display:block;
     background:#edf3f4;
     border:0;
-    border-radius:4px;
-    filter:none;
+    border-radius:0;
+    filter:saturate(.82) contrast(1.03) brightness(.62);
+    transition:filter .22s ease, transform .22s ease;
   }
-  .minimal-review-section .ag-name {
-    order:4;
-    font-size:17px;
-    line-height:1.25;
-    letter-spacing:-0.02em;
-    margin:11px 0 0;
-    padding:0;
+  .minimal-review-section .ag-thumb-title {
+    position:absolute;
+    inset:0;
+    z-index:1;
+    display:grid;
+    place-items:center;
+    padding:16px;
+    color:#fff;
+    font-size:20px;
+    line-height:1.22;
+    font-weight:750;
+    letter-spacing:0;
+    text-align:center;
+    text-shadow:0 2px 8px rgba(0,0,0,.32);
+    pointer-events:none;
   }
+  .minimal-review-section .review-image-link:hover .ag-thumb,
+  .minimal-review-section .review-image-link:focus-visible .ag-thumb {
+    filter:saturate(.9) contrast(1.05) brightness(.7);
+    transform:scale(1.015);
+  }
+
   .minimal-review-section .ag-loc {
     order:3;
     align-self:flex-end;
@@ -743,13 +768,15 @@
   }
   .minimal-review-section .ag-feat {
     order:5;
-    font-size:14px;
-    line-height:1.48;
-    letter-spacing:-0.01em;
-    margin:7px 0 0;
-    padding:0;
     display:block;
     overflow:visible;
+    margin:12px 0 0;
+    padding:0 2px;
+    color:#263442;
+    font-size:14.5px;
+    line-height:1.62;
+    font-weight:600;
+    letter-spacing:0;
     word-break:keep-all;
   }
   @media (max-width:1060px) {
@@ -1124,9 +1151,7 @@
     content:none;
     display:none;
   }
-  .minimal-review-section .ag-name {
-    margin-top:14px;
-  }
+
   .minimal-review-section .ag-loc {
     margin-top:0;
   }
@@ -1256,21 +1281,28 @@
       padding:0 0 24px;
       border-bottom:1px solid #dce8ea;
     }
-    .wrap .stack .slide.s02.minimal-review-section .ag-thumb {
-      width:100%;
+    .wrap .stack .slide.s02.minimal-review-section .review-image-link,
+    .wrap .stack .slide.s02.minimal-review-section .review-thumb-frame {
       height:auto;
       aspect-ratio:16 / 9.2;
       border-radius:8px;
-      object-fit:cover;
       margin:0 0 13px;
     }
-    .wrap .stack .slide.s02.minimal-review-section .ag-name {
-      font-size:17px;
-      line-height:1.28;
-      letter-spacing:-0.02em;
-      margin:0 0 7px;
-      padding:0;
+    .wrap .stack .slide.s02.minimal-review-section .ag-thumb {
+      width:100%;
+      height:100%;
+      aspect-ratio:auto;
+      border-radius:0;
+      object-fit:cover;
+      margin:0;
     }
+    .wrap .stack .slide.s02.minimal-review-section .ag-thumb-title {
+      font-size:18px;
+      font-weight:750;
+      letter-spacing:0;
+      padding:14px;
+    }
+
     .wrap .stack .slide.s02.minimal-review-section .ag-loc {
       font-size:12.5px;
       line-height:1.35;
@@ -1278,11 +1310,12 @@
       padding:0;
     }
     .wrap .stack .slide.s02.minimal-review-section .ag-feat {
-      font-size:14px;
-      line-height:1.58;
-      letter-spacing:-0.006em;
-      margin:0;
-      padding:0;
+      font-size:14.5px;
+      line-height:1.65;
+      font-weight:600;
+      letter-spacing:0;
+      margin:2px 0 0;
+      padding:0 1px;
     }
     .s03,
     .s04,
@@ -1886,7 +1919,7 @@
   .stack .ai-name { color:#191919; font-weight:600; }
 .stack .ag-loc,
   .stack .ai-loc { color:#9a9a9a; font-weight:500; }
-.stack .ag-feat { color:#555; font-weight:400; }
+.stack .ag-feat { color:#263442; font-weight:600; }
 
 /* 카테고리 필터 버튼 → 무채색 */
 
@@ -2725,11 +2758,10 @@
   function gridCardHTML(rec) {
     const cls = rec.cat === "event" ? "evnt" : rec.cat;
     const href = reviewBlogUrl(rec);
-    const image = '<img class="ag-thumb" src="./' + escHtml(rec.img) + '" alt="' + escHtml(rec.name) + '">';
-    const linkedImage = href ? '<a class="review-image-link" href="' + escHtml(href) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escHtml(rec.name) + ' 블로그 후기 열기">' + image + '</a>' : image;
+    const image = '<img class="ag-thumb" src="./' + escHtml(rec.img) + '" alt="' + escHtml(rec.name) + '"><span class="ag-thumb-title">' + escHtml(rec.name) + '</span>';
+    const linkedImage = href ? '<a class="review-image-link" href="' + escHtml(href) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escHtml(rec.name) + ' 블로그 후기 열기">' + image + '</a>' : '<div class="review-thumb-frame">' + image + '</div>';
     const inner = '<div class="agt-dot"></div>' +
       linkedImage +
-      '<div class="ag-name">' + escHtml(rec.name) + '</div>' +
       '<div class="ag-loc">' + escHtml(rec.loc) + '</div>' +
       '<div class="ag-feat">' + escHtml(rec.grid) + '</div>';
     return '<div class="ag-card t-' + cls + '" data-cat="' + rec.cat + '">' + inner + '</div>';
