@@ -514,6 +514,12 @@
     flex-wrap:wrap;
     gap:10px;
   }
+  .clean-review-break {
+    flex-basis:100%;
+    width:0;
+    height:0;
+    overflow:hidden;
+  }
   .clean-review-chip {
     appearance:none;
     display:inline-flex;
@@ -1209,6 +1215,9 @@
     }
     .clean-review-chips::-webkit-scrollbar {
       display:none;                /* Chrome/Safari: 스크롤바 제거 */
+    }
+    .clean-review-break {
+      display:none;
     }
     .clean-review-chip {
       flex:0 0 auto;
@@ -1954,6 +1963,7 @@
             <button class="clean-review-chip" type="button" data-hero-filter="best"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.8 6.2 20l1.1-6.5-4.7-4.6 6.5-.9L12 2Z"/></svg></span>장기 활용</button>
             <button class="clean-review-chip" type="button" data-hero-filter="work"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h5"/></svg></span>A. 워크북·시스템형</button>
             <button class="clean-review-chip" type="button" data-hero-filter="self"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span>B. 다독·자기주도형</button>
+            <span class="clean-review-break" aria-hidden="true"></span>
             <button class="clean-review-chip" type="button" data-hero-filter="deep"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 20l-7-4V4l7 4 7-4v12l-7 4Z"/><path d="M12 8v12"/></svg></span>C. 독후활동·창작형</button>
             <button class="clean-review-chip" type="button" data-hero-filter="event"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2V7ZM12 22V7M12 7c-1.5-3-6-3.5-6-1s3 2.5 6 1ZM12 7c1.5-3 6-3.5 6-1s-3 2.5-6 1Z"/></svg></span>D. 이벤트·학부모형</button>
           </div>
