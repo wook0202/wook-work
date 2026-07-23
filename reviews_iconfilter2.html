@@ -7,12 +7,10 @@
 <link rel="stylesheet" href="https://new.bookclubs.co.kr/brandnew/css/general.css?v=1.1.1">
 <style>
 
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
   /* ══════════════════════════════════════════════════════════════
      [1] 폰트 · 색상 토큰 · 리셋  (페이지 전역 기본값)
      ══════════════════════════════════════════════════════════════ */
-  /* Consolidated color tokens — final effective values (previously spread across 5 overriding :root blocks, verified via computed style) */
   * { margin:0; padding:0; box-sizing:border-box; }
   /* 본문(.stack)만 Pretendard 강제 — 헤더/푸터 기존 유지, 외부 general.css 오버라이드 차단 */
   .stack, .stack *, .stack *::before, .stack *::after { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif; }
@@ -20,39 +18,25 @@
   /* ── 본문 기본 레이아웃 : body / .stack / .slide ── */
   .stack { margin:0 auto; display:flex; flex-direction:column; }
   .slide { position:relative; }
-  .snum { display:none; }
 
   .slide-title { margin-bottom:4px; }
   
-  .slide-sub { text-align:center; line-height:1.45; }
-  .legend-row { flex-wrap:wrap; }
   .ag-card { position:relative; flex-direction:column; transition:filter .22s ease,opacity .22s ease,transform .22s ease,box-shadow .22s ease; }
   .ag-card::after { content:""; position:absolute; top:0; left:0; right:0; }
   .all-grid.has-filter .ag-card.is-active-card { order:-1; }
-  .agt-dot { display:none; }
   .ag-feat { flex:1; }
 
   .s03, .s04, .s05, .s06, .s07 { transition:filter .24s ease,opacity .24s ease,transform .24s ease,border-color .24s ease; }
   
-  .stack.detail-filtering .slide.detail-active { filter:none; opacity:1; transform:none; border-color:var(--blue); }
-  .s04 .grp-header, .s07 .grp-header { border-color:var(--line); }
-  .grp-badge { position:relative; flex:0 0 auto; font-size:0; }
-  .grp-badge::before, .grp-badge::after { content:""; position:absolute; height:2px; border-radius:999px; }
-  .grp-badge::before { top:12px; }
-  .grp-badge::after { top:19px; }
+  .stack.detail-filtering .slide.detail-active { filter:none; opacity:1; transform:none; }
 
   .acad-thumb { display:block; }
 
-  .group-quote,
-  .ues-bottom,
-  .s07 .group-quote+div { margin-top:12px; font-size:13.5px; line-height:1.55; padding:11px 16px; }
-  .s04 .group-quote, .s05 .group-quote, .s07 .group-quote, .s07 .group-quote + div { border-color:var(--line); }
-  .gq-label { font-weight:900; margin-bottom:4px; }
 
   /* ══════════════════════════════════════════════════════════════
      [공통] 카드 · 상세 기본 스타일 (미니멀 에디토리얼 톤)
      ══════════════════════════════════════════════════════════════ */
-  /* Minimal editorial redesign (color tokens consolidated into the :root block above) */
+  /* Minimal editorial redesign */
   .stack {
     max-width:1240px;
     gap:22px;
@@ -68,15 +52,6 @@
   .slide-title {
     padding-top:6px;
   }
-  .slide-sub {
-    font-size:15px;
-    margin-bottom:22px;
-  }
-  .legend-row {
-    margin:0 0 20px;
-    font-size:12px;
-    font-weight:700;
-  }
   .ag-card::after {
     height:0;
     background:transparent;
@@ -87,64 +62,18 @@
   .ag-feat {
     margin-top:12px;
   }
-  .s03,
-  .s04,
-  .s05,
-  .s06,
-  .s07,
-  .s08,
-  .s09 {
-    border-color:#dfe5ee;
-  }
-  .stack.detail-filtering .slide.detail-active,
-  .stack.detail-filtering .slide.detail-active.s04,
-  .stack.detail-filtering .slide.detail-active.s07 {
-    border-color:#9fb3d9;
-  }
   .grp-header {
     padding-bottom:18px;
     margin-bottom:18px;
-  }
-  .grp-badge {
-    width:34px;
-    height:34px;
-    border-radius:8px;
-    border:1px solid #d9e5ff;
-  }
-  .grp-badge::before,
-  .grp-badge::after {
-    left:9px;
-    right:9px;
   }
   .acad-thumb {
     border-color:#e3e8ef;
     filter:saturate(.9) contrast(1.02);
   }
 
-  .group-quote,
-  .ues-bottom,
-  .s07 .group-quote+div {
-    border:1px solid #e4e7ec;
-    border-left:3px solid var(--accent);
-    border-radius:8px;
-    color:#344054;
-    font-weight:600;
-  }
-  .gq-label,
-  .s04 .gq-label,
-  .s05 .gq-label,
-  .s07 .gq-label {
-    font-size:14.5px;
-  }
 
-  /* Category point colors (tokens consolidated into the :root block above) */
-  .t-best { --cat:var(--cat-best); --cat-soft:var(--cat-best-soft); }
-  .t-work { --cat:var(--cat-work); --cat-soft:var(--cat-work-soft); }
-  .t-self { --cat:var(--cat-self); --cat-soft:var(--cat-self-soft); }
-  .t-deep { --cat:var(--cat-deep); --cat-soft:var(--cat-deep-soft); }
-  .t-evnt { --cat:var(--cat-event); --cat-soft:var(--cat-event-soft); }
   .ag-card {
-    border-top:3px solid var(--cat);
+    border-top:3px solid #191919;
   }
   .review-image-link {
     display:block;
@@ -163,91 +92,11 @@
     left:12px;
   }
 
-  .s03 { --section-accent:var(--cat-best); --section-soft:var(--cat-best-soft); }
-  .s04 { --section-accent:var(--cat-work); --section-soft:var(--cat-work-soft); }
-  .s05 { --section-accent:var(--cat-self); --section-soft:var(--cat-self-soft); }
-  .s06 { --section-accent:var(--cat-deep); --section-soft:var(--cat-deep-soft); }
-  .s07 { --section-accent:var(--cat-event); --section-soft:var(--cat-event-soft); }
-  .s03,
-  .s04,
-  .s05,
-  .s06,
-  .s07 {
-    border-top:3px solid var(--section-accent);
-  }
-  .s03 .grp-ttl,
-  .s04 .grp-ttl,
-  .s05 .grp-ttl,
-  .s06 .grp-ttl,
-  .s07 .grp-ttl,
-  .s03 .gq-label,
-  .s04 .gq-label,
-  .s05 .gq-label,
-  .s06 .gq-label,
-  .s07 .gq-label {
-    color:var(--section-accent);
-  }
 
-  .s03 .group-quote,
-  .s04 .group-quote,
-  .s05 .group-quote,
-  .s06 .ues-bottom,
-  .s07 .group-quote,
-  .s07 .group-quote + div {
-    background:var(--section-soft);
-  }
-
-  /* Editorial summary sections: no icon-like shapes, color panels, or boxed cards */
-  .s08,
-  .s09 {
-    border-color:#e6ebf2;
-    padding-top:34px;
-    padding-bottom:34px;
-  }
-
-  /* Professional illustration-led impact sections */
-
-  .impact-layout {
-    display:grid;
-    grid-template-columns:360px minmax(0,1fr);
-    gap:34px;
-    align-items:center;
-  }
-
-  @media (max-width:1060px) {
-    .impact-layout {
-      grid-template-columns:1fr;
-    }
-
-  }
   @media (max-width:560px) {
-    
     .stack { gap:14px; }
-    .legend-row { overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; }
-
   }
 
-  /* Palette copy 2: #91C6BC #4B9DA9 #F6F3C2 #E37434 (tokens consolidated into the :root block above) */
-  .s01 {
-    border-color:#91C6BC;
-  }
-
-  .acad-item {
-    border-color:#d6e9e5;
-  }
-  .grp-badge,
-  .s03 .grp-badge,
-  .s04 .grp-badge,
-  .s05 .grp-badge,
-  .s06 .grp-badge,
-  .s07 .grp-badge {
-    color:#4B9DA9;
-  }
-  .group-quote,
-  .ues-bottom,
-  .s07 .group-quote+div {
-    border-left-color:#E37434;
-  }
 
   /* ══════════════════════════════════════════════════════════════
      [5] 슬라이드 01 — 히어로 + 카테고리 필터
@@ -326,64 +175,6 @@
   /* ══════════════════════════════════════════════════════════════
      [6] 슬라이드 02 — 후기 한눈에 보기 (필터 + 카드 그리드)
      ══════════════════════════════════════════════════════════════ */
-  /* Category filter: icon-card layout (replaces plain .lg pill row for s02 legend) */
-  .legend-row.lg-cards {
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:10px;
-    justify-content:stretch;
-    margin-bottom:18px;
-  }
-  .lg-card {
-    appearance:none;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    width:100%;
-    background:#fff;
-    border:1.5px solid #e4e7ec;
-    border-radius:10px;
-    padding:12px 14px;
-    font:inherit;
-    text-align:left;
-    cursor:pointer;
-    transition:border-color .15s ease, background .15s ease, transform .15s ease;
-  }
-  .lg-card:hover { transform:translateY(-1px); border-color:#c3cad6; }
-  .lg-card:focus-visible { outline:3px solid rgba(75,157,169,.28); outline-offset:2px; }
-  .lgc-icon {
-    width:34px;
-    height:34px;
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex:0 0 auto;
-  }
-  .lgc-icon svg { width:18px; height:18px; }
-  .lgc-txt { min-width:0; }
-  .lgc-txt b { display:block; font-size:13px; font-weight:800; color:#101828; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .lgc-txt span { display:block; font-size:11px; color:#667085; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .lg-card.cat-best .lgc-icon { background:#eef8f8; color:#4B9DA9; }
-  .lg-card.cat-work .lgc-icon { background:#f2faf8; color:#91C6BC; }
-  .lg-card.cat-self .lgc-icon { background:#fff4ee; color:#E37434; }
-  .lg-card.cat-deep .lgc-icon { background:#eef9f6; color:#6ab4ad; }
-  .lg-card.cat-event .lgc-icon { background:#fff3ec; color:#d36a35; }
-  .lg-card.cat-all.active { background:#101828; border-color:#101828; }
-  .lg-card.cat-all.active .lgc-icon { background:rgba(255,255,255,.14); color:#fff; }
-  .lg-card.cat-all.active .lgc-txt b { color:#fff; }
-  .lg-card.cat-all.active .lgc-txt span { color:#c7ccd6; }
-  .lg-card.cat-best.active { background:#eef8f8; border-color:#4B9DA9; }
-  .lg-card.cat-work.active { background:#f2faf8; border-color:#91C6BC; }
-  .lg-card.cat-self.active { background:#fff4ee; border-color:#E37434; }
-  .lg-card.cat-deep.active { background:#eef9f6; border-color:#6ab4ad; }
-  .lg-card.cat-event.active { background:#fff3ec; border-color:#d36a35; }
-  @media (max-width:900px) {
-    .legend-row.lg-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  }
-  @media (max-width:560px) {
-    .legend-row.lg-cards { grid-template-columns:1fr; }
-  }
-
   .review-archive-label {
     height:120px;
     background:#f4f7fb;
@@ -644,12 +435,6 @@
     padding:70px 0 78px;
     letter-spacing:-0.01em;
   }
-  .minimal-review-section .snum,
-  .minimal-review-section .slide-sub,
-  .minimal-review-section .review-empty,
-  .minimal-review-section .legend-row {
-    display:none;
-  }
   .minimal-review-section .slide-title {
     text-align:left;
     font-size:34px;
@@ -822,23 +607,6 @@
   .s07 .grp-header::after {
     white-space:nowrap;
   }
-  .s03 .grp-badge,
-  .s04 .grp-badge,
-  .s05 .grp-badge,
-  .s06 .grp-badge,
-  .s07 .grp-badge {
-    display:none;
-  }
-  
-  .s03 .grp-sub,
-  .s04 .grp-sub,
-  .s05 .grp-sub,
-  .s06 .grp-sub,
-  .s07 .grp-sub {
-    font-size:13px;
-    line-height:1.4;
-    margin-top:4px;
-  }
   
   .s03 .acad-item,
   .s04 .acad-item,
@@ -855,14 +623,6 @@
     border:0;
   }
 
-  .s03 .group-quote,
-  .s04 .group-quote,
-  .s05 .group-quote,
-  .s06 .ues-bottom,
-  .s07 .group-quote,
-  .s07 .group-quote + div {
-    display:none;
-  }
 
   /* Detail option 2: large testimonial magazine rows */
   .s03, .s04, .s05, .s06, .s07 {
@@ -876,7 +636,6 @@
     border-bottom:0;
     padding:0;
   }
-  .s03 .grp-sub, .s04 .grp-sub, .s05 .grp-sub, .s06 .grp-sub, .s07 .grp-sub { display:none; }
   .s03 .grp-header::after, .s04 .grp-header::after, .s05 .grp-header::after, .s06 .grp-header::after, .s07 .grp-header::after {
     color:#515a6f;
   }
@@ -1403,18 +1162,6 @@
       margin:0 0 28px;
       border:0;
     }
-    .s03 .grp-badge,
-    .s04 .grp-badge,
-    .s05 .grp-badge,
-    .s06 .grp-badge,
-    .s07 .grp-badge,
-    .s03 .grp-sub,
-    .s04 .grp-sub,
-    .s05 .grp-sub,
-    .s06 .grp-sub,
-    .s07 .grp-sub {
-      display:none;
-    }
     .s03 .grp-ttl,
     .s04 .grp-ttl,
     .s05 .grp-ttl,
@@ -1594,7 +1341,6 @@
     display:flex;
     justify-content:center;
     font-family:"Pretendard","Apple SD Gothic Neo",Arial,sans-serif;
-    border-bottom:1px solid #f0f0f0;
     position:relative;
     z-index:20;
   }
@@ -1665,34 +1411,13 @@
   }
   .enterButton:hover { background:#2a2a2a; }
   .enterButton:active { transform:scale(.97); }
-  .logout {
-    background:none;
-    border:0;
-    padding:0;
-    font:inherit;
-    color:#282828;
-    font-size:16px;
-    font-weight:500;
-    cursor:pointer;
-    transition:opacity .15s ease;
-  }
-  .logout:hover { opacity:.6; text-decoration:underline; }
-  .iconBtn {
+  /* 비로그인 기본(01_header.tsx 기준). 로그인 세션 연동 시 로그아웃 UI 복원 — TODO(dev) */
+  .hdrSpacer {
     width:44px;
     height:44px;
     flex-shrink:0;
-    background:none;
-    border:0;
-    padding:0;
-    cursor:pointer;
-    color:#111;
     display:none;
-    align-items:center;
-    justify-content:center;
-    transition:opacity .15s ease;
   }
-  .iconBtn:hover { opacity:.6; }
-  .iconBtn:active { transform:scale(.94); }
   .hamburger {
     width:44px;
     height:44px;
@@ -1717,8 +1442,6 @@
   .header .logo:focus-visible,
   .header .navLink:focus-visible,
   .enterButton:focus-visible,
-  .logout:focus-visible,
-  .iconBtn:focus-visible,
   .hamburger:focus-visible,
   .closeBtn:focus-visible,
   .footerToggle:focus-visible,
@@ -1728,6 +1451,13 @@
     border-radius:6px;
   }
   .enterButton:focus-visible { border-radius:100px; }
+  /* 마우스 클릭 시 잔류 outline 제거 (focus-visible 미지원 폴백) */
+  .header .logo:focus:not(:focus-visible),
+  .header .navLink:focus:not(:focus-visible),
+  .enterButton:focus:not(:focus-visible),
+  .hamburger:focus:not(:focus-visible),
+  .closeBtn:focus:not(:focus-visible),
+  .footerToggle:focus:not(:focus-visible) { outline:none; }
   .newMobileOverlay {
     position:fixed;
     inset:0;
@@ -1929,9 +1659,11 @@
       height:72px;
       padding:0 12px;
     }
-    .hamburger,
-    .iconBtn {
+    .hamburger {
       display:flex;
+    }
+    .hdrSpacer {
+      display:block;
     }
 
     .header .logo {
@@ -1971,14 +1703,14 @@
   }
   .sdi .sdi-head { max-width:1180px; margin:0 auto 44px; }
   .sdi-eyebrow { display:block; color:#adadad; font-size:12.5px; font-weight:600; letter-spacing:.16em; margin-bottom:20px; }
-  .sdi-title { color:#191919; font-size:clamp(28px,3.4vw,44px); line-height:1.28; font-weight:300; letter-spacing:-.02em; margin:0; }
+  .sdi-title { color:#191919; font-size:clamp(28px,3.4vw,44px); line-height:1.28; font-weight:300; letter-spacing:-.02em; margin:0; word-break:keep-all; }
   .sdi-title .dot { color:#191919; }
-  .sdi-sub { color:#6b6b6b; font-size:16px; font-weight:400; line-height:1.65; margin:18px 0 0; max-width:760px; }
+  .sdi-sub { color:#6b6b6b; font-size:16px; font-weight:400; line-height:1.65; margin:18px 0 0; max-width:760px; word-break:keep-all; }
   .sdi-list { max-width:1180px; margin:0 auto; border-top:1px solid #191919; }
   .sdi-row { display:grid; grid-template-columns:70px minmax(0,1fr); gap:30px; padding:34px 4px; border-bottom:1px solid #ededed; align-items:start; }
   .sdi-num { color:#c4c4c4; font-size:15px; font-weight:600; letter-spacing:.02em; padding-top:5px; font-feature-settings:"tnum"; }
-  .sdi-row-title { color:#191919; font-size:20px; font-weight:700; line-height:1.42; letter-spacing:-.01em; margin:0 0 11px; }
-  .sdi-row-desc { color:#555; font-size:15px; font-weight:400; line-height:1.75; margin:0; }
+  .sdi-row-title { color:#191919; font-size:20px; font-weight:700; line-height:1.42; letter-spacing:-.01em; margin:0 0 11px; word-break:keep-all; }
+  .sdi-row-desc { color:#555; font-size:15px; font-weight:400; line-height:1.75; margin:0; word-break:keep-all; }
   .sdi-row-meta { color:#a4a4a4; font-size:13px; font-weight:500; letter-spacing:.01em; margin-top:13px; }
   @media (max-width:640px) {
     .sdi { padding:48px 4px 44px; }
@@ -1991,16 +1723,13 @@
      ══════════════════════════════════════════════════════════════ */
 /* ===== 미니멀 톤 통일 (시대인재 스타일) — 본문 .stack 전용, 헤더/푸터 제외 ===== */
 
-.stack .ttl-main, .stack .s01 .ttl-main { color:#191919; font-weight:700; letter-spacing:-.02em; text-shadow:none; }
+.stack .ttl-main, .stack .s01 .ttl-main { color:#191919; font-weight:700; letter-spacing:-.02em; text-shadow:none; word-break:keep-all; }
 
-.stack .ttl-desc { color:#6b6b6b; font-weight:400; }
+.stack .ttl-desc { color:#6b6b6b; font-weight:400; word-break:keep-all; }
 
-.stack .slide-title { color:#191919; font-weight:300; letter-spacing:-.02em; }
-.stack .slide-title span { color:#191919; }
-.stack .slide-sub { color:#6b6b6b; font-weight:400; }
+.stack .slide-title { color:#191919; font-weight:300; letter-spacing:-.02em; word-break:keep-all; }
 
-.stack .grp-ttl { color:#191919; font-weight:300; letter-spacing:-.02em; }
-.stack .grp-sub { color:#6b6b6b; font-weight:400; }
+.stack .grp-ttl { color:#191919; font-weight:300; letter-spacing:-.02em; word-break:keep-all; }
 
 .stack .ag-name,
   .stack .ai-name { color:#191919; font-weight:600; }
@@ -2008,17 +1737,6 @@
   .stack .ai-loc { color:#9a9a9a; font-weight:500; }
 .stack .ag-feat { color:#263442; font-weight:580; }
 
-/* 카테고리 필터 버튼 → 무채색 */
-
-/* 컬러 액센트 → 모노톤 */
-.stack .ag-card { border-top-color:#191919; }
-.stack .s03, .stack .s04, .stack .s05, .stack .s06, .stack .s07 { border-top-color:#191919; }
-.stack .acad-item { border-left-color:#191919; }
-.stack .grp-badge { background:#f4f4f4; border-color:#e4e4e4; }
-.stack .grp-badge::before, .stack .grp-badge::after { background:#191919; }
-
-.stack .group-quote,
-  .stack .ues-bottom { border-left-color:#191919; }
 
 </style>
 </head>
@@ -2040,15 +1758,9 @@
     </nav>
     <div class="actions">
       <a class="enterButton" href="https://new.bookclubs.co.kr/pages/user/login">북클럽 들어가기</a>
-      <button class="logout" type="button">로그아웃</button>
     </div>
-    <button class="iconBtn" type="button" aria-label="로그아웃">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-        <polyline points="16 17 21 12 16 7" />
-        <line x1="21" y1="12" x2="9" y2="12" />
-      </svg>
-    </button>
+    <!-- 비로그인 기본: 모바일 로고 중앙정렬용 스페이서. 로그인 세션 연동 시 로그아웃 아이콘으로 교체 (01_header.tsx 참조) -->
+    <span class="hdrSpacer" aria-hidden="true"></span>
   </div>
 </header>
 <div class="newMobileOverlay" id="newMobileOverlay" onclick="newHeaderClose()"></div>
@@ -2061,7 +1773,6 @@
   </nav>
   <div class="drawerActions">
     <a class="enterButton" href="https://new.bookclubs.co.kr/pages/user/login">북클럽 들어가기</a>
-    <button class="logout" type="button" onclick="newHeaderClose()">로그아웃</button>
   </div>
 </aside>
 <!-- //uploaded header -->
@@ -2079,13 +1790,13 @@
         <div class="clean-review-row">
           <div class="clean-review-label">카테고리</div>
           <div class="clean-review-chips">
-            <button class="clean-review-chip active" type="button" data-hero-filter="all"><span class="chip-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>전체보기</button>
-            <button class="clean-review-chip" type="button" data-hero-filter="best"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.8 6.2 20l1.1-6.5-4.7-4.6 6.5-.9L12 2Z"/></svg></span>장기 활용</button>
-            <button class="clean-review-chip" type="button" data-hero-filter="work"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h5"/></svg></span>A. 워크북·시스템형</button>
-            <button class="clean-review-chip" type="button" data-hero-filter="self"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span>B. 다독·자기주도형</button>
+            <button class="clean-review-chip active" type="button" aria-pressed="true" data-hero-filter="all"><span class="chip-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>전체보기</button>
+            <button class="clean-review-chip" type="button" aria-pressed="false" data-hero-filter="best"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.8 6.2 20l1.1-6.5-4.7-4.6 6.5-.9L12 2Z"/></svg></span>장기 활용</button>
+            <button class="clean-review-chip" type="button" aria-pressed="false" data-hero-filter="work"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h5"/></svg></span>A. 워크북·시스템형</button>
+            <button class="clean-review-chip" type="button" aria-pressed="false" data-hero-filter="self"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span>B. 다독·자기주도형</button>
             <span class="clean-review-break" aria-hidden="true"></span>
-            <button class="clean-review-chip" type="button" data-hero-filter="deep"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 20l-7-4V4l7 4 7-4v12l-7 4Z"/><path d="M12 8v12"/></svg></span>C. 독후활동·창작형</button>
-            <button class="clean-review-chip" type="button" data-hero-filter="event"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2V7ZM12 22V7M12 7c-1.5-3-6-3.5-6-1s3 2.5 6 1ZM12 7c1.5-3 6-3.5 6-1s-3 2.5-6 1Z"/></svg></span>D. 이벤트·학부모형</button>
+            <button class="clean-review-chip" type="button" aria-pressed="false" data-hero-filter="deep"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M12 20l-7-4V4l7 4 7-4v12l-7 4Z"/><path d="M12 8v12"/></svg></span>C. 독후활동·창작형</button>
+            <button class="clean-review-chip" type="button" aria-pressed="false" data-hero-filter="event"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2V7ZM12 22V7M12 7c-1.5-3-6-3.5-6-1s3 2.5 6 1ZM12 7c1.5-3 6-3.5 6-1s-3 2.5-6 1Z"/></svg></span>D. 이벤트·학부모형</button>
           </div>
           <button class="clean-review-reset" type="button" data-hero-filter="all" aria-label="초기화" title="초기화">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2102,40 +1813,10 @@
 
 <div class="review-archive-label"></div>
 
-<!-- ══════════════════ SLIDE 02 — 23개 학원 한눈에 ══════════════════ -->
+<!-- ══════════════════ SLIDE 02 — 학원후기 한눈에 보기 ══════════════════ -->
 <div class="slide s02 minimal-review-section">
-  <div class="snum">02</div>
-  <div class="slide-title"><span></span> 생생한 학원후기 한눈에 보기</div>
+  <div class="slide-title">생생한 학원후기 한눈에 보기</div>
   <p class="review-click-guide">궁금한 학원 이미지를 클릭하면 블로그에서<br class="mobile-copy-break"> 더 자세한 활용 후기를 볼 수 있어요.</p>
-  <div class="slide-sub">아래 카테고리를 클릭하면 해당 학원 후기만 골라서 확인할 수 있어요</div>
-
-  <div class="legend-row lg-cards" data-review-filters>
-    <button class="lg-card cat-all active" type="button" data-filter="all">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
-      <span class="lgc-txt"><b>전체 보기</b><span>22개 학원</span></span>
-    </button>
-    <button class="lg-card cat-best" type="button" data-filter="best">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 16.8 6.2 20l1.1-6.5-4.7-4.6 6.5-.9L12 2Z"/></svg></span>
-      <span class="lgc-txt"><b>장기 활용</b><span>5년 이상 사용</span></span>
-    </button>
-    <button class="lg-card cat-work" type="button" data-filter="work">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span>
-      <span class="lgc-txt"><b>A. 워크북·시스템형</b><span>체크리스트·리포트</span></span>
-    </button>
-    <button class="lg-card cat-self" type="button" data-filter="self">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h5"/></svg></span>
-      <span class="lgc-txt"><b>B. 다독·자기주도형</b><span>숙제·자기주도 습관</span></span>
-    </button>
-    <button class="lg-card cat-deep" type="button" data-filter="deep">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l-7-4V4l7 4 7-4v12l-7 4Z"/><path d="M12 8v12"/></svg></span>
-      <span class="lgc-txt"><b>C. 독후활동·창작형</b><span>북저널·미니북·녹음</span></span>
-    </button>
-    <button class="lg-card cat-event" type="button" data-filter="event">
-      <span class="lgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2V7ZM12 22V7M12 7c-1.5-3-6-3.5-6-1s3 2.5 6 1ZM12 7c1.5-3 6-3.5 6-1s-3 2.5-6 1Z"/></svg></span>
-      <span class="lgc-txt"><b>D. 이벤트·학부모형</b><span>학부모 만족·자발 후기</span></span>
-    </button>
-  </div>
-  <div class="review-empty">보고 싶은 카테고리를 선택하면 해당 학원 후기만 깔끔하게 펼쳐집니다.</div>
 
   <div class="all-grid" id="all-grid"></div>
 
@@ -2143,112 +1824,69 @@
 
 <!-- ══════════════════ SLIDE 03 — 장기간 활용 학원 ══════════════════ -->
 <div class="slide s03">
-  <div class="snum">03</div>
   <div class="grp-header">
-    <div class="grp-badge" style="background:#7C96FF;"></div>
     <div>
-      <div class="grp-ttl" style="color:#4256c8;">장기간 활용 학원</div>
+      <div class="grp-ttl">장기간 활용 학원</div>
     </div>
   </div>
 
   <div class="acad-grid" id="grid-best"></div>
-
-  <div class="group-quote" style="border-color:#7C96FF;">
-    <div class="gq-label" style="color:#4256c8;">공통 성공 요인</div>
-    <div>5~10년 장기 사용 + 학원 자체 시스템과 참빛의 자연스러운 결합 + 학생별 맞춤 운영</div>
-  </div>
 </div>
 
 <!-- ══════════════════ SLIDE 04 — Group A: 워크북·체크리스트형 ══════════════════ -->
 <div class="slide s04">
-  <div class="snum">04</div>
   <div class="grp-header">
-    <div class="grp-badge" style="background:#16b99a;"></div>
     <div>
-      <div class="grp-ttl" style="color:#128a75;">A. 워크북·시스템형</div>
-      <div class="grp-sub">제본·체크리스트·리포트 활용하기</div>
+      <div class="grp-ttl">A. 워크북·시스템형</div>
     </div>
   </div>
 
   <div class="acad-grid" id="grid-work"></div>
-
-  <div class="group-quote" style="border-color:#16b99a;">
-    <div class="gq-label" style="color:#128a75;">핵심 인사이트</div>
-    <div>"체크리스트와 워크북 제본으로 학습이 가시화되니, 학부모께 보여드릴 자료가 절로 쌓여요."</div>
-  </div>
 </div>
 
 <!-- ══════════════════ SLIDE 05 — Group B: 다독·자기주도형 ══════════════════ -->
 <div class="slide s05">
-  <div class="snum">05</div>
   <div class="grp-header">
-    <div class="grp-badge" style="background:#16b99a;"></div>
     <div>
-      <div class="grp-ttl" style="color:#16b99a;">B. 다독·자기주도형</div>
-      <div class="grp-sub">숙제·자기주도·대기시간 활용으로 일상에 영어독서 끼워넣기</div>
+      <div class="grp-ttl">B. 다독·자기주도형</div>
     </div>
   </div>
 
   <div class="acad-grid" id="grid-self"></div>
-
-  <div class="group-quote" style="border-color:#16b99a;">
-    <div class="gq-label" style="color:#16b99a;">핵심 인사이트</div>
-    <div>"학생이 스스로 '100점 맞고 싶어' 다시 풀거나 '못한 숙제 마저 할게요' 하는 변화 — 이게 자기주도학습이에요."</div>
-  </div>
 </div>
 
 <!-- ══════════════════ SLIDE 06 — Group C: 독후활동 심화 + UES Detail ══════════════════ -->
 <div class="slide s06">
-  <div class="snum">06</div>
   <div class="grp-header">
-    <div class="grp-badge" style="background:#7C96FF;"></div>
     <div>
-      <div class="grp-ttl" style="color:#4256c8;">C. 독후활동 심화·창작형</div>
-      <div class="grp-sub">오프라인 북저널 · 미니북 · 녹음 · 발표 · 다독 챌린지</div>
+      <div class="grp-ttl">C. 독후활동 심화·창작형</div>
     </div>
   </div>
 
   <div class="acad-grid" id="grid-deep"></div>
-
-  <div class="ues-bottom">
-    <b>이 그룹의 공통점</b> — '읽기'에 머무르지 않고 <b>창작·발화·시각화·시상</b>으로 학습을 연장합니다. 학부모가 직접 보는 결과물이 남아 신뢰가 쌓이고, 아이는 "내가 해냈다"는 자기효능감으로 다음 책을 펼칩니다.
-  </div>
 </div>
 
 <!-- ══════════════════ SLIDE 07 — Group D: 이벤트·학부모형 ══════════════════ -->
 <div class="slide s07">
-  <div class="snum">07</div>
   <div class="grp-header">
-    <div class="grp-badge" style="background:#7C96FF;"></div>
     <div>
-      <div class="grp-ttl" style="color:#4256c8;">D. 이벤트·학부모형</div>
-      <div class="grp-sub">학부모 만족 · 학생 자발 후기 · 인식 변화</div>
+      <div class="grp-ttl">D. 이벤트·학부모형</div>
     </div>
   </div>
 
   <div class="acad-grid" id="grid-event"></div>
-
-  <div class="group-quote" style="border-color:#7C96FF;">
-    <div class="gq-label" style="color:#4256c8;">핵심 인사이트</div>
-    <div>"학생이 학원에 카톡으로 감사 메시지를 보내고, 학부모는 '영어책에 대한 아이 인식이 바뀌었다'고 말합니다."</div>
-  </div>
-
-  <div style="margin-top:10px; background:#fff; border-radius:9px; padding:11px 16px; font-size:13.5px; color:#444; font-weight:600; line-height:1.55; border-left:4px solid #4256c8;">
-    <b style="color:#111c36;">베스트 활용 팁</b> — 단톡방에 Learning 결과 캡처 공유 (포아이) · 영상으로 학부모께 학습 모습 전달 (E.U*I) · 다독왕·북클럽 달 이벤트 (달*한·올*) · 부모님 사인 체크리스트 (i*T)
-  </div>
 </div>
 
 <!-- ══════════════════ SLIDE 08 — 서비스 영향 요약 (시대인재 스타일) ══════════════════ -->
 
 <div class="slide s08 sdi">
-  <div class="snum">08</div>
   <div class="sdi-head">
     <span class="sdi-eyebrow">SERVICE IMPACT</span>
-    <h2 class="sdi-title">학원 후기에서 발견한 공통 키워드 </h2>
+    <h2 class="sdi-title">학원 후기에서 발견한 공통 키워드</h2>
     <p class="sdi-sub">참빛북클럽이 학원 운영과 학생 경험에 만든 긍정적 변화</p>
   </div>
 
-  <div class="impact-layout" style="display:block;">
+  <div>
     <div class="sdi-list">
       <div class="sdi-row">
         <div class="sdi-num">01</div>
@@ -2288,10 +1926,9 @@
 
 <!-- ══════════════════ SLIDE 09 — 성장 구조 (시대인재 스타일) ══════════════════ -->
 <div class="slide s09 sdi">
-  <div class="snum">09</div>
   <div class="sdi-head">
     <span class="sdi-eyebrow">GROWTH LOOP</span>
-    <h2 class="sdi-title">학원과 학생이 함께 성장한 모습 </h2>
+    <h2 class="sdi-title">학원과 학생이 함께 성장한 모습</h2>
     <p class="sdi-sub">서비스 도입 후 학원 운영, 학생 태도, 학부모 신뢰가 함께 강화된 흐름</p>
   </div>
 
@@ -2400,11 +2037,6 @@
         "오프라인 1,000권 도서 → 참빛 전면 전환 성공",
         "기초 완성 후 가정 자율독서로 자연 연계"
       ],
-      "tags": [
-        "9년 4개월",
-        "복합학습",
-        "유치부~중학생"
-      ],
       "blogUrl": "https://blog.naver.com/bookclubs/223151907701"
     },
     {
@@ -2416,7 +2048,6 @@
       "grid": "8년 동안 매달 독서 권수를 기록",
       "feat": "티칭 + 리딩 둘 다 중요 · **8년동안 매달 반별 학생 독서 권수 수첩 기록** · 유치부 Book Report 작성",
       "pts": [],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223143225171"
     },
     {
@@ -2431,11 +2062,6 @@
         "**Learning 90점↑** 목표 → 자연스럽게 반복 이해",
         "주 3회 정독+다독 병행 (일 1~2권)",
         "참빛 = 다독 전용, 정독은 별도 프로그램 활용"
-      ],
-      "tags": [
-        "10년",
-        "90점 목표",
-        "정독+다독"
       ],
       "blogUrl": "https://blog.naver.com/bookclubs/223142182334"
     },
@@ -2452,11 +2078,6 @@
         "**AI 레벨테스트**로 학생별 수준 자동 매칭",
         "단톡방 Learning 결과 공유 → 학부모 실시간 확인"
       ],
-      "tags": [
-        "9년 3개월",
-        "AI 레벨테스트",
-        "단톡방 공유"
-      ],
       "blogUrl": "https://blog.naver.com/bookclubs/223152090315"
     },
     {
@@ -2472,7 +2093,6 @@
         "3개월마다 학부모 보고서 발송 → 신뢰 구축",
         "다독 달성 시 상장·보상으로 동기 유발"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222706166694"
     },
     {
@@ -2487,11 +2107,6 @@
         "워크북 3개월치 제본 → **학부모용 학습 포트폴리오**",
         "정독 레벨보다 낮은 책으로 다독 → 부담 없이 유창성↑",
         "비용 대비 효과 탁월 — 원장님 강력 추천"
-      ],
-      "tags": [
-        "8년 1개월",
-        "워크북 제본",
-        "단계별 다독"
       ],
       "blogUrl": "https://blog.naver.com/bookclubs/222200480845"
     },
@@ -2508,7 +2123,6 @@
         "북리포트: 마인드맵 + 그림 그리기 결합",
         "독서기록장으로 누적 독서 이력 시각화"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222957626851"
     },
     {
@@ -2524,7 +2138,6 @@
         "9단계 Learning 단계별 완료 체크",
         "워크북 숙제 → 가정 자율학습 연결"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223557009423"
     },
     {
@@ -2540,7 +2153,6 @@
         "매달 **다독왕 이벤트**로 경쟁심·재미 자극",
         "AI 레벨테스트로 매월 성장 객관적 측정"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222937989856"
     },
     {
@@ -2556,7 +2168,6 @@
         "리딩 녹음 → 폰 전송 → 즉각 피드백",
         "50권 달성 시 보상 → \"더 읽고 싶어요!\" 자발적 동기"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222689072718"
     },
     {
@@ -2572,7 +2183,6 @@
         "10~30분 짧은 시간으로 부담 없이 습관화",
         "금요일 북리포트로 한 주 독서 마무리"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222934555863"
     },
     {
@@ -2588,7 +2198,6 @@
         "주 1회 영어 토론 수업 → 말하기 자신감 급성장",
         "토론 영상 촬영 → 학부모 전송 → 신뢰↑"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222932423735"
     },
     {
@@ -2603,11 +2212,6 @@
         "파닉스 완성 직후 **7세부터 참빛 리딩** 연결",
         "주 정독 2권 + 다독 3권 → 균형 잡힌 독서 루틴",
         "학부모가 \"깜짝 놀라는\" 아이의 변화 직접 목격"
-      ],
-      "tags": [
-        "5년 이상",
-        "정독+다독",
-        "미니북"
       ],
       "blogUrl": "https://blog.naver.com/bookclubs/222864149358"
     },
@@ -2624,7 +2228,6 @@
         "\"100점 맞고 싶어요\" → 스스로 3회 이상 재도전",
         "매주 화요일 새 과제 → 규칙적 독서 사이클"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223828771169"
     },
     {
@@ -2640,7 +2243,6 @@
         "말하기 자신감 눈에 띄게 향상 → 학부모 만족↑",
         "\"못 다 한 숙제 마저 할게요\" 솔선수범 사례 발생"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222864063077"
     },
     {
@@ -2655,7 +2257,6 @@
         "매일 2~3권 + 퀴즈 + 워크시트 **3종 세트** 루틴",
         "그림·글 표현 독후활동 → 창의력·어휘력 동반 성장"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223548036296"
     },
     {
@@ -2670,7 +2271,6 @@
         "스피킹 먼저 → 도서관 독서 병행 → **인풋→아웃풋 선순환**",
         "\"음성 언어 인풋이 먼저\" 원칙으로 자연스러운 영어 습득"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223569475971"
     },
     {
@@ -2686,12 +2286,7 @@
         "녹음 파일 카카오톡 전송 → 학부모 즉시 확인",
         "배경지식·어휘·독해·쓰기 **4영역 통합** 수업"
       ],
-      "tags": [
-        "5년 3개월",
-        "녹음 전송",
-        "4영역 통합"
-      ],
-      "blogUrl": "https://blog.naver.com/bookclubs"
+      "blogUrl": "https://blog.naver.com/bookclubs/222949464081"
     },
     {
       "name": "삼*영어 예미지교실",
@@ -2705,7 +2300,6 @@
         "겨울방학 집중 이벤트 → 학생 간 **선의의 경쟁**",
         "방학 중 200권 가까이 달성 → 폭발적 독서량↑"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223376118157"
     },
     {
@@ -2721,7 +2315,6 @@
         "학부모의 영어원서 관심이 자연스럽게 높아짐",
         "학부모 만족도·재등록 관심도 상승"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/223894745591"
     },
     {
@@ -2730,14 +2323,13 @@
       "loc": "학생 자발 후기",
       "dur": "",
       "img": "idoo.jpg",
-      "grid": "학생이 먼저 재미하고 자기주도적인 학습 사용",
+      "grid": "학생이 먼저 재미를 느끼고 자기주도적으로 학습",
       "feat": "학생이 직접 보낸 메시지 — **\"재미있어요 · 진짜 영어 학습에 도움이 됩니다 · 만들어 주셔서 감사해요\"**",
       "pts": [
         "학생이 먼저 **카톡으로 감사 메시지** 자발 발송",
         "\"재미있어요\" \"진짜 도움돼요\" — 내재적 동기 형성 증거",
         "학생 후기가 학원 홍보로 자연 연결"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/224014396072"
     },
     {
@@ -2753,7 +2345,6 @@
         "자기주도학습 시간에 자연스럽게 참빛 활용",
         "빅데이터 레벨테스트 + 게임형 UX로 학생 몰입↑"
       ],
-      "tags": [],
       "blogUrl": "https://blog.naver.com/bookclubs/222200488590"
     },
     {
@@ -2769,15 +2360,10 @@
         "\"기존 영어 공책보다 훨씬 고급스럽다\" \n→ 학부모 만족도 상승",
         "학생이 직접 쓴 기록장 사진을 공유 \n→ 성장의 증거로 자연스럽게 활용"
       ],
-      "tags": [
-        "9년차",
-        "독서기록장",
-        "학부모 만족"
-      ],
       "blogUrl": "https://blog.naver.com/bookclubs/224333914620"
     }
   ];
-  // 이 페이지가 그 시트 데이터를 자동으로 불러와 카드로 렌더링합니다. 비워두면 기본 데이터로 표시됩니다.
+  // 구글시트(CSV) 데이터를 자동으로 불러와 카드로 렌더링. 실패하거나 비어 있으면 위 FALLBACK_REVIEWS 사용.
   const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1ChA3s2sWrwaUHcITA-VawL9j5PwKMINbB_7K1BnUDh8/export?format=csv&gid=489158814";
 
   const CAT_LABEL_MAP = {
@@ -2787,10 +2373,11 @@
     "C. 독후활동·창작형": "deep",
     "D. 이벤트·학부모형": "event"
   };
-  const CAT_COLOR = { best: "#7C96FF", work: "#16b99a", self: "#16b99a", deep: "#7C96FF", event: "#7C96FF" };
   const EXISTING_SHEET_REVIEW_COUNT = 23;
   const REVIEW_BLOG_URL_BY_IMAGE = {
     "ils.jpg": "https://blog.naver.com/bookclubs/223151907701",
+    "roland.jpeg": "https://blog.naver.com/bookclubs/223143225171",
+    "bongdam.jpg": "https://blog.naver.com/bookclubs/222949464081",
     "jne.jpg": "https://blog.naver.com/bookclubs/223142182334",
     "fouri.jpg": "https://blog.naver.com/bookclubs/223152090315",
     "readandtalk.jpg": "https://blog.naver.com/bookclubs/222706166694",
@@ -2869,7 +2456,6 @@
         grid: (row[idx("한줄소개(그리드용)")] || "").trim(),
         feat: (row[idx("상세소개(**굵게**)")] || "").trim(),
         pts: [row[idx("포인트1")], row[idx("포인트2")], row[idx("포인트3")]].map((v) => (v || "").trim()).filter(Boolean),
-        tags: [row[idx("태그1")], row[idx("태그2")], row[idx("태그3")]].map((v) => (v || "").trim()).filter(Boolean),
         blogUrl: ((blogIdx >= 0 ? row[blogIdx] : row[13]) || "").trim()
       });
     }
@@ -2889,15 +2475,13 @@
   }
 
   function gridCardHTML(rec) {
-    const cls = rec.cat === "event" ? "evnt" : rec.cat;
     const href = reviewBlogUrl(rec);
     const image = '<img class="ag-thumb" src="' + escHtml(reviewImageSrc(rec.img)) + '" alt="' + escHtml(rec.name) + '"><span class="ag-thumb-title">' + escHtml(rec.name) + '</span>';
     const linkedImage = href ? '<a class="review-image-link" href="' + escHtml(href) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escHtml(rec.name) + ' 블로그 후기 열기">' + image + '</a>' : '<div class="review-thumb-frame">' + image + '</div>';
-    const inner = '<div class="agt-dot"></div>' +
-      linkedImage +
+    const inner = linkedImage +
       '<div class="ag-loc">' + escHtml(rec.loc) + '</div>' +
       '<div class="ag-feat">' + escHtml(rec.grid) + '</div>';
-    return '<div class="ag-card t-' + cls + '" data-cat="' + rec.cat + '">' + inner + '</div>';
+    return '<div class="ag-card" data-cat="' + rec.cat + '">' + inner + '</div>';
   }
   function detailCardHTML(rec) {
     const href = reviewBlogUrl(rec);
@@ -2915,14 +2499,12 @@
       linkedImage +
       '</article>';
   }
-  let filterBarBound = false;
   let heroFilterBound = false;
   function initReviewFilters() {
     const section = document.querySelector('.s02');
     if (!section) return;
-    const filterBar = section.querySelector('[data-review-filters]');
     const grid = section.querySelector('.all-grid');
-    if (!filterBar || !grid) return;
+    if (!grid) return;
     const stack = document.querySelector('.stack');
     const detailMap = {
       best: document.querySelector('.s03'),
@@ -2933,13 +2515,12 @@
     };
     const detailSections = Object.values(detailMap).filter(Boolean);
 
-    function applyReviewFilter(filter, activeButton, shouldScroll) {
+    function applyReviewFilter(filter, shouldScroll) {
       const cards = Array.from(section.querySelectorAll('.ag-card'));
-      filterBar.querySelectorAll('[data-filter]').forEach((item) => {
-        item.classList.toggle('active', item === activeButton);
-      });
-      document.querySelectorAll('[data-hero-filter]').forEach((item) => {
-        item.classList.toggle('active', item.classList.contains('clean-review-chip') && item.dataset.heroFilter === filter);
+      document.querySelectorAll('.clean-review-chip[data-hero-filter]').forEach((item) => {
+        const isActive = item.dataset.heroFilter === filter;
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
       const isAll = filter === 'all';
       section.classList.add('review-open');
@@ -2968,23 +2549,13 @@
     }
     window.__applyReviewFilter = applyReviewFilter;
 
-    if (!filterBarBound) {
-      filterBarBound = true;
-      filterBar.addEventListener('click', (event) => {
-        const button = event.target.closest('[data-filter]');
-        if (!button) return;
-        window.__applyReviewFilter(button.dataset.filter, button, true);
-      });
-    }
     const heroFilterBar = document.querySelector('.clean-review-filters');
     if (!heroFilterBound && heroFilterBar) {
       heroFilterBound = true;
       heroFilterBar.addEventListener('click', (event) => {
         const button = event.target.closest('[data-hero-filter]');
         if (!button) return;
-        const filter = button.dataset.heroFilter;
-        const targetButton = filterBar.querySelector('[data-filter="' + filter + '"]');
-        if (targetButton) window.__applyReviewFilter(filter, targetButton, true);
+        window.__applyReviewFilter(button.dataset.heroFilter, true);
       });
     }
   }
@@ -3000,8 +2571,6 @@
 
       }
     });
-    const countEl = document.querySelector('[data-filter="all"] .lgc-txt span');
-    if (countEl) countEl.textContent = data.length + '개 학원';
     initReviewFilters();
   }
 
@@ -3034,6 +2603,16 @@
 
   if (SHEET_CSV_URL) loadSheetReviews(1);
 
+</script>
+
+<!-- Naver Analytics -->
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "1b46b70425cd9e0";
+if(window.wcs) {
+wcs_do();
+}
 </script>
 
 </body>
